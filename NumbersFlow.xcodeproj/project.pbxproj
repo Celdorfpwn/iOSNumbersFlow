@@ -12,6 +12,9 @@
 		B86BB1A61DF879F50068EB63 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B86BB1A41DF879F50068EB63 /* Main.storyboard */; };
 		B86BB1A81DF879F50068EB63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B86BB1A71DF879F50068EB63 /* Assets.xcassets */; };
 		B86BB1AB1DF879F50068EB63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B86BB1A91DF879F50068EB63 /* LaunchScreen.storyboard */; };
+		B873C27D1DFF3F9900C40DB3 /* CountDowner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B873C27C1DFF3F9900C40DB3 /* CountDowner.swift */; };
+		B87CF80C1DF9F92F00FB4F46 /* NumbersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87CF80B1DF9F92F00FB4F46 /* NumbersFactory.swift */; };
+		B87CF80E1DFA192600FB4F46 /* GameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87CF80D1DFA192600FB4F46 /* GameButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		B86BB1A71DF879F50068EB63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B86BB1AA1DF879F50068EB63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B86BB1AC1DF879F50068EB63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B873C27C1DFF3F9900C40DB3 /* CountDowner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountDowner.swift; sourceTree = "<group>"; };
+		B87CF80B1DF9F92F00FB4F46 /* NumbersFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumbersFactory.swift; sourceTree = "<group>"; };
+		B87CF80D1DFA192600FB4F46 /* GameButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +66,9 @@
 				B86BB1A71DF879F50068EB63 /* Assets.xcassets */,
 				B86BB1A91DF879F50068EB63 /* LaunchScreen.storyboard */,
 				B86BB1AC1DF879F50068EB63 /* Info.plist */,
+				B87CF80B1DF9F92F00FB4F46 /* NumbersFactory.swift */,
+				B87CF80D1DFA192600FB4F46 /* GameButton.swift */,
+				B873C27C1DFF3F9900C40DB3 /* CountDowner.swift */,
 			);
 			path = NumbersFlow;
 			sourceTree = "<group>";
@@ -137,7 +146,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B87CF80C1DF9F92F00FB4F46 /* NumbersFactory.swift in Sources */,
+				B87CF80E1DFA192600FB4F46 /* GameButton.swift in Sources */,
 				B86BB1A31DF879F50068EB63 /* ViewController.swift in Sources */,
+				B873C27D1DFF3F9900C40DB3 /* CountDowner.swift in Sources */,
 				B86BB1A11DF879F50068EB63 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,6 +273,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = VAS2C2F9FF;
 				INFOPLIST_FILE = NumbersFlow/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -274,6 +287,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = VAS2C2F9FF;
 				INFOPLIST_FILE = NumbersFlow/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -302,6 +316,7 @@
 				B86BB1B11DF879F50068EB63 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

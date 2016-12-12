@@ -12,60 +12,56 @@ class ViewController: UIViewController {
     
     private let numbersFactory : NumbersFactory = NumbersFactory()
     
-    private let timerLabel : UILabel = UILabel()
-    
-    private var timerCount : Int = 60
-    
-    private var timer : Timer = Timer()
+    private lazy var countDowner : CountDowner = CountDowner(controller: self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.lightGray
+        
         startGame()
     }
     
-    func startGame(){
+    public func startGame(){
         view.subviews.forEach({ $0.removeFromSuperview()})
         numbersFactory.reset()
         generateButtons()
-        generateTimerLabel()
-        timerCount = 60
-        timerLabel.text = String(timerCount)
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerCountAction), userInfo: nil, repeats: true)
+        countDowner.start()
     }
     
     
-    func endGame() {
+    public func endGame() {
         let message = "Congratulations! Your score is " + String(numbersFactory.getScore())
         let alertController = UIAlertController(title: "Game over", message: message, preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "Restart" , style: UIAlertActionStyle.default, handler: { (alert: UIAlertAction!) in self.startGame() }))
         present(alertController,animated: true,completion: nil)
     }
     
-    func generateTimerLabel() {
-        let xPosition : CGFloat = view.frame.width / 2
-        let yPosition : CGFloat = 50.0
-        
-        timerLabel.frame = CGRect(x: 0,y: 0,width: 50.0,height: 30.0)
-        timerLabel.backgroundColor = UIColor.darkGray
-        timerLabel.textColor = UIColor.white
-        timerLabel.center = CGPoint(x: xPosition, y: yPosition)
-        timerLabel.textAlignment = NSTextAlignment.center
-        view.addSubview(timerLabel)
-    }
     
-    func timerCountAction() {
+
+    
+    
+    @IBAction func buttonClick(button: GameButton!) {
         
-        if(timerCount == 0)
+        
+        let number = Int(button.titleLabel!.text!)
+        
+        if(numbersFactory.validateNumber(number: number!))
         {
-            timer.invalidate()
-            endGame()
+            button.okEvent()
+            countDowner.addCombo()
+            button.setTitle(String(numbersFactory.getNextNumber()), for: UIControlState.normal)
+        }
+        else
+        {
+            button.wrongEvent()
         }
         
-        timerLabel.text = String(timerCount)
-        timerCount -= 1
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        
+    }
     
     func generateButtons() {
         let buttonSize : CGFloat = view.frame.width / 6
@@ -82,7 +78,7 @@ class ViewController: UIViewController {
                 button.initialize(x: xPosition, y: yPosition, size: buttonSize)
                 button.setTitle(String(numbersFactory.getNextNumber()), for: UIControlState.normal)
                 button.addTarget(self, action: #selector(buttonClick), for: UIControlEvents.touchUpInside)
-                
+                button.layer.cornerRadius = 10
                 xPosition += buttonSize + whiteSpace
                 
                 view.addSubview(button)
@@ -92,29 +88,6 @@ class ViewController: UIViewController {
             yPosition += buttonSize + whiteSpace
             
         }
-    }
-    
-    
-    @IBAction func buttonClick(button: GameButton!) {
-        
-        
-        let number = Int(button.titleLabel!.text!)
-        
-        if(numbersFactory.validateNumber(number: number!))
-        {
-            button.okEvent()
-            button.setTitle(String(numbersFactory.getNextNumber()), for: UIControlState.normal)
-        }
-        else
-        {
-            button.wrongEvent()
-        }
-        
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        
     }
     
 }
