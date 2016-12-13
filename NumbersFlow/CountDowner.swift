@@ -11,6 +11,7 @@ import UIKit
 
 struct Constants {
     static let comboSeconds = 2
+    static let startSeconds = 66
 }
 
 public class CountDowner {
@@ -19,7 +20,7 @@ public class CountDowner {
     
     private let timerLabel : UILabel = UILabel()
     
-    private var timerCounter : Int = 60
+    private var timerCounter : Int = Constants.startSeconds
     
     private var timer : Timer = Timer()
     
@@ -37,15 +38,26 @@ public class CountDowner {
         generateTimerLabel()
         comboCounter = Constants.comboSeconds
         
-        timerCounter = 60
+        timerCounter = Constants.startSeconds
         timerLabel.text = String(timerCounter)
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerCountAction), userInfo: nil, repeats: true)
+    }
+    
+    public func wrong(){
+        comboCounter = 0
+        comboX = 0
+        if(timerCounter >= 3){
+            timerCounter -= 3
+            timerLabel.text = String(timerCounter)
+        }
+        else {
+            endGame()
+        }
     }
     
     public func addCombo() {
         comboCounter = Constants.comboSeconds
         comboX += 1
-        timerCounter += 1
     }
     
     func calculateCombo() -> Int {
@@ -64,11 +76,15 @@ public class CountDowner {
         viewController.view.addSubview(timerLabel)
     }
     
+    func endGame() {
+        timer.invalidate()
+        viewController.endGame()
+    }
+    
     @objc func timerCountAction() {
-        if(timerCounter == 0)
+        if(timerCounter <= 0)
         {
-            timer.invalidate()
-            viewController.endGame()
+            endGame()
         }
         
         if(comboCounter == 0)

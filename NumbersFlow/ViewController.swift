@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var presentationLabel: UILabel!
+    @IBOutlet  var presentationLabel: UILabel!
     
     private let numbersFactory : NumbersFactory = NumbersFactory()
     
@@ -48,8 +48,7 @@ class ViewController: UIViewController {
             self.presentationLabel.alpha = 1.0
             self.presentationLabel.text = "Have fun"
         })
-    
-       
+        
         _ = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(fadeOutSecondText), userInfo: nil, repeats: false)
     }
     
@@ -63,25 +62,41 @@ class ViewController: UIViewController {
     
     public func startGame(){
         
-            self.view.backgroundColor = UIColor.lightGray
-            self.view.subviews.forEach({ $0.removeFromSuperview()})
-            self.numbersFactory.reset()
-            self.generateButtons()
-            self.countDowner.start()
-    
+        self.view.backgroundColor = UIColor.lightGray
+        removeButtons()
+        self.numbersFactory.reset()
+        self.generateButtons()
+        self.countDowner.start()
+        
     }
     
-
+    private func removeButtons(){
+        self.view.subviews.forEach({
+            if(!$0.isEqual(self.presentationLabel)){
+                $0.removeFromSuperview()
+            }
+            
+            self.presentationLabel.isHidden = true
+            
+        })
+    }
+    
+    
     public func endGame() {
         
-        let message = "Congratulations! Your score is " + String(numbersFactory.getScore())
-        let alertController = UIAlertController(title: "Game over", message: message, preferredStyle: UIAlertControllerStyle.alert)
-        alertController.addAction(UIAlertAction(title: "Restart" , style: UIAlertActionStyle.default, handler: { (alert: UIAlertAction!) in self.startGame() }))
-        present(alertController,animated: true,completion: nil)
+        removeButtons()
+        self.view.backgroundColor = UIColor.white
+        self.presentationLabel.text = "Best score " + String(numbersFactory.getScore())
+        self.presentationLabel.isHidden = false
+        UIView.animate(withDuration: 2, animations: {
+            self.presentationLabel.alpha = 1.0
+        })
+        
+        _ = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(startGame), userInfo: nil, repeats: false)
         
     }
     
-
+    
     @IBAction func buttonClick(button: GameButton!) {
         
         let number = Int(button.titleLabel!.text!)
@@ -94,6 +109,7 @@ class ViewController: UIViewController {
         }
         else
         {
+            countDowner.wrong()
             button.wrongEvent()
         }
         
