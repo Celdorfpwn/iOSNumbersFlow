@@ -15,6 +15,7 @@
 		B873C27D1DFF3F9900C40DB3 /* CountDowner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B873C27C1DFF3F9900C40DB3 /* CountDowner.swift */; };
 		B87CF80C1DF9F92F00FB4F46 /* NumbersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87CF80B1DF9F92F00FB4F46 /* NumbersFactory.swift */; };
 		B87CF80E1DFA192600FB4F46 /* GameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87CF80D1DFA192600FB4F46 /* GameButton.swift */; };
+		B8C3EC001E00A65700B6309F /* ScoreBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C3EBFF1E00A65700B6309F /* ScoreBoard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		B873C27C1DFF3F9900C40DB3 /* CountDowner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountDowner.swift; sourceTree = "<group>"; };
 		B87CF80B1DF9F92F00FB4F46 /* NumbersFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumbersFactory.swift; sourceTree = "<group>"; };
 		B87CF80D1DFA192600FB4F46 /* GameButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameButton.swift; sourceTree = "<group>"; };
+		B8C3EBFF1E00A65700B6309F /* ScoreBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreBoard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				B87CF80B1DF9F92F00FB4F46 /* NumbersFactory.swift */,
 				B87CF80D1DFA192600FB4F46 /* GameButton.swift */,
 				B873C27C1DFF3F9900C40DB3 /* CountDowner.swift */,
+				B8C3EBFF1E00A65700B6309F /* ScoreBoard.swift */,
 			);
 			path = NumbersFlow;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 				B87CF80C1DF9F92F00FB4F46 /* NumbersFactory.swift in Sources */,
 				B87CF80E1DFA192600FB4F46 /* GameButton.swift in Sources */,
 				B86BB1A31DF879F50068EB63 /* ViewController.swift in Sources */,
+				B8C3EC001E00A65700B6309F /* ScoreBoard.swift in Sources */,
 				B873C27D1DFF3F9900C40DB3 /* CountDowner.swift in Sources */,
 				B86BB1A11DF879F50068EB63 /* AppDelegate.swift in Sources */,
 			);

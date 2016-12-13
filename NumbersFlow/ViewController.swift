@@ -86,7 +86,21 @@ class ViewController: UIViewController {
         
         removeButtons()
         self.view.backgroundColor = UIColor.white
-        self.presentationLabel.text = "Best score " + String(numbersFactory.getScore())
+        
+        let scoreBoard = ScoreBoard()
+        
+        scoreBoard.tryBestScore(bestscore: numbersFactory.getScore())
+        
+        if(scoreBoard.isBestScore(bestscore: numbersFactory.getScore()))
+        {
+            
+            self.presentationLabel.text = "Best score " + String(numbersFactory.getScore())
+        }
+        else
+        {
+            self.presentationLabel.text = "Score " + String(numbersFactory.getScore())
+        }
+        
         self.presentationLabel.isHidden = false
         UIView.animate(withDuration: 2, animations: {
             self.presentationLabel.alpha = 1.0
