@@ -23,46 +23,24 @@ class ViewController: UIViewController {
     
     public func startIntroduction(){
         presentationLabel.alpha = 0.0
-        
-        presentationLabel.text = "Catchy Games"
-        
-        UIView.animate(withDuration: 2, animations: {
-            self.presentationLabel.alpha = 1.0
-        })
-        
-        _ = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(fadeOutFirstText), userInfo: nil, repeats: false)
+        fadeInFun()
     }
     
-    public func fadeOutFirstText() {
-        UIView.animate(withDuration: 2, animations: {
-            self.presentationLabel.alpha = 0
-        })
+    
+    public func fadeInFun() {
         
-        _ = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(fadeInSecondText), userInfo: nil, repeats: false)
+        self.presentationLabel.text = "Have fun"
+        fadeInText()
+        _ = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(fadeOutFun), userInfo: nil, repeats: false)
     }
     
-    public func fadeInSecondText() {
-        
-        self.presentationLabel.alpha = 0.0
-        UIView.animate(withDuration: 0.5, animations: {
-            self.presentationLabel.alpha = 1.0
-            self.presentationLabel.text = "Have fun"
-        })
-        
-        _ = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(fadeOutSecondText), userInfo: nil, repeats: false)
-    }
-    
-    public func fadeOutSecondText() {
-        UIView.animate(withDuration: 2, animations: {
-            self.presentationLabel.alpha = 0
-        })
-        
+    public func fadeOutFun() {
+        fadeOutText()
         _ = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(startGame), userInfo: nil, repeats: false)
     }
     
     public func startGame(){
         
-        self.view.backgroundColor = UIColor.lightGray
         removeButtons()
         self.numbersFactory.reset()
         self.generateButtons()
@@ -82,33 +60,66 @@ class ViewController: UIViewController {
     }
     
     
+    
     public func endGame() {
         
         removeButtons()
         self.view.backgroundColor = UIColor.white
-        
+        self.presentationLabel.isHidden = false
         let scoreBoard = ScoreBoard()
         
         scoreBoard.tryBestScore(bestscore: numbersFactory.getScore())
         
         if(scoreBoard.isBestScore(bestscore: numbersFactory.getScore()))
         {
-            
-            self.presentationLabel.text = "Best score " + String(numbersFactory.getScore())
+            fadeInBestScore()
         }
         else
         {
-            self.presentationLabel.text = "Score " + String(numbersFactory.getScore())
+            fadeInScore()
         }
+    }
+    
+    public func fadeInScore(){
+        self.presentationLabel.text = "Score " + String(numbersFactory.getScore())
+        fadeInText()
+        _ = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(fadeOutScore), userInfo: nil, repeats: false)
+    }
+    
+    public func fadeOutScore(){
+        fadeOutText()
+        _ = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(fadeInBestScore), userInfo: nil, repeats: false)
+    }
+    
+    
+    public func fadeInBestScore(){
+        self.presentationLabel.text = "Best score " + String(ScoreBoard().getBestScore())
+        fadeInText()
+        _ = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(fadeOutBestScore), userInfo: nil, repeats: false)
+    }
+    
+    public func fadeOutBestScore(){
         
-        self.presentationLabel.isHidden = false
+        fadeOutText()
+        _ = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(startGame), userInfo: nil, repeats: false)
+        
+    }
+    
+    
+    private func fadeInText(){
+        
         UIView.animate(withDuration: 2, animations: {
             self.presentationLabel.alpha = 1.0
         })
-        
-        _ = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(startGame), userInfo: nil, repeats: false)
-        
     }
+    
+    private func fadeOutText(){
+        UIView.animate(withDuration: 2, animations: {
+            self.presentationLabel.alpha = 0
+        })
+    }
+    
+
     
     
     @IBAction func buttonClick(button: GameButton!) {

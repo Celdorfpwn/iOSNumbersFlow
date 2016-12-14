@@ -69,7 +69,7 @@ public class CountDowner {
         let yPosition : CGFloat = 50.0
         
         timerLabel.frame = CGRect(x: 0,y: 0,width: 50.0,height: 30.0)
-        timerLabel.backgroundColor = UIColor.darkGray
+        timerLabel.backgroundColor = UIColor.black
         timerLabel.textColor = UIColor.white
         timerLabel.center = CGPoint(x: xPosition, y: yPosition)
         timerLabel.textAlignment = NSTextAlignment.center

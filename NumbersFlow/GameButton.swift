@@ -13,7 +13,7 @@ public class GameButton : UIButton {
     
     public func initialize(x: CGFloat, y: CGFloat, size : CGFloat) {
         self.frame = CGRect(x: x,y: y,width: size,height: size)
-        self.backgroundColor = UIColor.darkGray
+        self.backgroundColor = UIColor.black
         self.setTitleColor(UIColor.white, for: UIControlState.normal)
         self.titleLabel!.font = UIFont(name: "Arial", size: 25)
     }
@@ -34,7 +34,7 @@ public class GameButton : UIButton {
     
     
     func reset() {
-        self.backgroundColor = UIColor.darkGray
+        self.backgroundColor = UIColor.black
     }
     
 }

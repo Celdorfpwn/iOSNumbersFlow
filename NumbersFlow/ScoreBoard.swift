@@ -24,7 +24,8 @@ class ScoreBoard {
         return bestscore >= getBestScore()
     }
     
-    private func getBestScore() -> Int {
+    
+    public func getBestScore() -> Int {
     
         if(UserDefaults.standard.object(forKey: "bestscore") == nil){
             return 0
