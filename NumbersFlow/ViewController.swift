@@ -163,9 +163,8 @@ class ViewController: UIViewController {
             for _ in 1...5 {
                 let button =  GameButton(type: UIButtonType.system)
                 button.initialize(x: xPosition, y: yPosition, size: buttonSize)
-                button.setTitle(String(numbersFactory.getNextNumber()), for: UIControlState.normal)
+                button.setText(text: String(numbersFactory.getNextNumber()))
                 button.addTarget(self, action: #selector(buttonClick), for: UIControlEvents.touchUpInside)
-                button.layer.cornerRadius = 10
                 xPosition += buttonSize + whiteSpace
                 
                 view.addSubview(button)

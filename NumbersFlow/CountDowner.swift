@@ -18,7 +18,7 @@ public class CountDowner {
     
     private let viewController : ViewController
     
-    private let timerLabel : UILabel = UILabel()
+    private var timerLabel : GameButton!
     
     private var timerCounter : Int = Constants.startSeconds
     
@@ -39,7 +39,7 @@ public class CountDowner {
         comboCounter = Constants.comboSeconds
         
         timerCounter = Constants.startSeconds
-        timerLabel.text = String(timerCounter)
+        timerLabel.setText(text: String(timerCounter) )
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerCountAction), userInfo: nil, repeats: true)
     }
     
@@ -48,7 +48,7 @@ public class CountDowner {
         comboX = 0
         if(timerCounter >= 3){
             timerCounter -= 3
-            timerLabel.text = String(timerCounter)
+            timerLabel.setText(text: String(timerCounter))
         }
         else {
             endGame()
@@ -65,14 +65,12 @@ public class CountDowner {
     }
     
     func generateTimerLabel() {
-        let xPosition : CGFloat = viewController.view.frame.width / 2
+        let buttonSize : CGFloat = viewController.view.frame.width / 6
+        let xPosition : CGFloat = buttonSize / 2 + buttonSize * 2
         let yPosition : CGFloat = 50.0
         
-        timerLabel.frame = CGRect(x: 0,y: 0,width: 50.0,height: 30.0)
-        timerLabel.backgroundColor = UIColor.black
-        timerLabel.textColor = UIColor.white
-        timerLabel.center = CGPoint(x: xPosition, y: yPosition)
-        timerLabel.textAlignment = NSTextAlignment.center
+        timerLabel =  GameButton(type: UIButtonType.system)
+        timerLabel.initialize(x: xPosition, y: yPosition, size: buttonSize)
         viewController.view.addSubview(timerLabel)
     }
     
@@ -93,12 +91,12 @@ public class CountDowner {
             {
                 let comboTotal = calculateCombo()
                 timerCounter += comboTotal
-                timerLabel.text = "+" + String(comboTotal)
+                timerLabel.setText(text: "+" + String(comboTotal))
                 
             }
             else
             {
-                timerLabel.text = String(timerCounter)
+                timerLabel.setText(text: String(timerCounter))
                 timerCounter -= 1
             }
             
@@ -107,7 +105,7 @@ public class CountDowner {
         else
         {
             comboCounter -= 1
-            timerLabel.text = String(timerCounter)
+            timerLabel.setText(text:String(timerCounter))           
             timerCounter -= 1
         }
     }

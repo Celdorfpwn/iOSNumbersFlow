@@ -15,7 +15,8 @@ public class GameButton : UIButton {
         self.frame = CGRect(x: x,y: y,width: size,height: size)
         self.backgroundColor = UIColor.black
         self.setTitleColor(UIColor.white, for: UIControlState.normal)
-        self.titleLabel!.font = UIFont(name: "Arial", size: 25)
+        self.titleLabel!.font = UIFont(name: "Arial", size: size / 2.5)
+        self.layer.cornerRadius = 10
     }
     
     
@@ -30,6 +31,15 @@ public class GameButton : UIButton {
         self.backgroundColor = UIColor.red
         
         Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(reset), userInfo: nil, repeats: false)
+    }
+    
+    public func setText(text : String){
+        
+        setTitle(text, for: UIControlState.normal)
+    }
+    
+    public func getText() -> String{
+        return currentTitle!
     }
     
     

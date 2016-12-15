@@ -29,7 +29,7 @@ public class NumbersFactory {
     private func get25Numbers(start : Int, limit : Int) -> [Int] {
         var numbers : [Int] = []
         
-        for number in start...limit {
+        for number in start...(start + limit) {
             numbers.append(number)
         }
         
