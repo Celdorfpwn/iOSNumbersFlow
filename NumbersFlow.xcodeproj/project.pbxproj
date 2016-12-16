@@ -19,7 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B86BB19D1DF879F50068EB63 /* NumbersFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NumbersFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B86BB19D1DF879F50068EB63 /* Catchy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Catchy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B86BB1A01DF879F50068EB63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B86BB1A21DF879F50068EB63 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B86BB1A51DF879F50068EB63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -54,7 +54,7 @@
 		B86BB19E1DF879F50068EB63 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B86BB19D1DF879F50068EB63 /* NumbersFlow.app */,
+				B86BB19D1DF879F50068EB63 /* Catchy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -93,7 +93,7 @@
 			);
 			name = NumbersFlow;
 			productName = NumbersFlow;
-			productReference = B86BB19D1DF879F50068EB63 /* NumbersFlow.app */;
+			productReference = B86BB19D1DF879F50068EB63 /* Catchy.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -282,7 +282,7 @@
 				INFOPLIST_FILE = NumbersFlow/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = catchygames.NumbersFlow;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Catchy;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -296,7 +296,7 @@
 				INFOPLIST_FILE = NumbersFlow/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = catchygames.NumbersFlow;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Catchy;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
