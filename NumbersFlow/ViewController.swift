@@ -150,17 +150,19 @@ class ViewController: UIViewController {
     
     func generateButtons() {
         
-        let buttonSize : CGFloat = view.frame.width / 6
+        let buttonSize : CGFloat = view.frame.width / Constants.buttonDiff
         
-        let whiteSpace : CGFloat = buttonSize / 6
+        let whiteSpace : CGFloat = buttonSize / Constants.buttonDiff
         
         var xPosition : CGFloat = whiteSpace
         
-        var yPosition : CGFloat = (view.frame.height - buttonSize * 5 - whiteSpace * 4) / 2
+        // 5x5 var yPosition : CGFloat = (view.frame.height - buttonSize * Constants.whiteSpaceIndex - whiteSpace * 4) / 2
         
-        for _ in 1...5 {
+        var yPosition : CGFloat = buttonSize * 2.5
+        
+        for _ in 1...Constants.gameIndex {
             
-            for _ in 1...5 {
+            for _ in 1...Constants.gameIndex {
                 let button =  GameButton(type: UIButtonType.system)
                 button.initialize(x: xPosition, y: yPosition, size: buttonSize)
                 button.setText(text: String(numbersFactory.getNextNumber()))

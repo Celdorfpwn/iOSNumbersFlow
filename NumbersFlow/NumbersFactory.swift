@@ -16,17 +16,17 @@ public class NumbersFactory {
     
     private var start : Int = 1
     
-    private var limit : Int = 25
+    private var limit : Int = Constants.gameIndex * Constants.gameIndex
     
     
     public func reset(){
         currentNumbers = []
         nextNumber = 1
         start = 1
-        limit = 25
+        limit = Constants.gameIndex * Constants.gameIndex
     }
     
-    private func get25Numbers(start : Int, limit : Int) -> [Int] {
+    private func getNumbers(start : Int, limit : Int) -> [Int] {
         var numbers : [Int] = []
         
         for number in start...limit {
@@ -66,9 +66,9 @@ public class NumbersFactory {
     }
     
     private func updateCurrentList(){
-        var orderedNumbers = get25Numbers(start: start, limit: limit)
-        start += 25
-        limit += 25
+        var orderedNumbers = getNumbers(start: start, limit: limit)
+        start += Constants.gameIndex * Constants.gameIndex
+        limit += Constants.gameIndex * Constants.gameIndex
         
         while !orderedNumbers.isEmpty {
             var randomIndex = 0

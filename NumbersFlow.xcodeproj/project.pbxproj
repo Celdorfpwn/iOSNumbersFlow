@@ -13,6 +13,7 @@
 		B86BB1A81DF879F50068EB63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B86BB1A71DF879F50068EB63 /* Assets.xcassets */; };
 		B86BB1AB1DF879F50068EB63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B86BB1A91DF879F50068EB63 /* LaunchScreen.storyboard */; };
 		B873C27D1DFF3F9900C40DB3 /* CountDowner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B873C27C1DFF3F9900C40DB3 /* CountDowner.swift */; };
+		B87467981E09C01E004E66CE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87467971E09C01E004E66CE /* Constants.swift */; };
 		B87CF80C1DF9F92F00FB4F46 /* NumbersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87CF80B1DF9F92F00FB4F46 /* NumbersFactory.swift */; };
 		B87CF80E1DFA192600FB4F46 /* GameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87CF80D1DFA192600FB4F46 /* GameButton.swift */; };
 		B8C3EC001E00A65700B6309F /* ScoreBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C3EBFF1E00A65700B6309F /* ScoreBoard.swift */; };
@@ -27,6 +28,7 @@
 		B86BB1AA1DF879F50068EB63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B86BB1AC1DF879F50068EB63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B873C27C1DFF3F9900C40DB3 /* CountDowner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountDowner.swift; sourceTree = "<group>"; };
+		B87467971E09C01E004E66CE /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B87CF80B1DF9F92F00FB4F46 /* NumbersFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumbersFactory.swift; sourceTree = "<group>"; };
 		B87CF80D1DFA192600FB4F46 /* GameButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameButton.swift; sourceTree = "<group>"; };
 		B8C3EBFF1E00A65700B6309F /* ScoreBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreBoard.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				B87CF80D1DFA192600FB4F46 /* GameButton.swift */,
 				B873C27C1DFF3F9900C40DB3 /* CountDowner.swift */,
 				B8C3EBFF1E00A65700B6309F /* ScoreBoard.swift */,
+				B87467971E09C01E004E66CE /* Constants.swift */,
 			);
 			path = NumbersFlow;
 			sourceTree = "<group>";
@@ -103,7 +106,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Catchy Games";
 				TargetAttributes = {
 					B86BB19C1DF879F40068EB63 = {
@@ -153,6 +156,7 @@
 				B87CF80E1DFA192600FB4F46 /* GameButton.swift in Sources */,
 				B86BB1A31DF879F50068EB63 /* ViewController.swift in Sources */,
 				B8C3EC001E00A65700B6309F /* ScoreBoard.swift in Sources */,
+				B87467981E09C01E004E66CE /* Constants.swift in Sources */,
 				B873C27D1DFF3F9900C40DB3 /* CountDowner.swift in Sources */,
 				B86BB1A11DF879F50068EB63 /* AppDelegate.swift in Sources */,
 			);
@@ -198,6 +202,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -248,6 +253,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

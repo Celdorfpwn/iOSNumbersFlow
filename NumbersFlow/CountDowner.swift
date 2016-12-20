@@ -9,10 +9,6 @@
 import Foundation
 import UIKit
 
-struct Constants {
-    static let comboSeconds = 2
-    static let startSeconds = 66
-}
 
 public class CountDowner {
     
@@ -65,9 +61,15 @@ public class CountDowner {
     }
     
     func generateTimerLabel() {
-        let buttonSize : CGFloat = viewController.view.frame.width / 6
-        let xPosition : CGFloat = buttonSize / 2 + buttonSize * 2
-        let yPosition : CGFloat = 50.0
+        let buttonSize : CGFloat = viewController.view.frame.width / Constants.buttonDiff
+        // 5x5 buttonSize / 2 + buttonSize * 2
+        
+        
+        let xPosition : CGFloat = buttonSize / 5 * 2 + buttonSize + buttonSize / 2 + buttonSize / 10
+        // 5x5 let yPosition : CGFloat = 50.0
+        
+        let yPosition : CGFloat = (buttonSize * 1.5 ) / 2
+        
         
         timerLabel =  GameButton(type: UIButtonType.system)
         timerLabel.initialize(x: xPosition, y: yPosition, size: buttonSize)
@@ -82,7 +84,14 @@ public class CountDowner {
     @objc func timerCountAction() {
         if(timerCounter <= 0)
         {
-            endGame()
+            if(comboX <= 3)
+            {
+                endGame()
+            }
+            else
+            {
+                comboCounter = 0
+            }
         }
         
         if(comboCounter == 0)
