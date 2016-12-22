@@ -24,6 +24,8 @@ public class CountDowner {
     
     private var comboX : Int = 0
     
+    private var blockLabelText : Bool = false
+    
     init(controller : ViewController) {
         viewController = controller
         
@@ -36,6 +38,7 @@ public class CountDowner {
         
         timerCounter = Constants.startSeconds
         timerLabel.setText(text: String(timerCounter) )
+        timerLabel.addTarget(viewController, action: #selector(viewController.counterClick), for: UIControlEvents.touchUpInside)
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerCountAction), userInfo: nil, repeats: true)
     }
     
@@ -51,10 +54,22 @@ public class CountDowner {
         }
     }
     
+    public func tempSetLabelText(text: String){
+        
+        blockLabelText = true
+        timerLabel.setText(text: text)
+        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(freeLabel), userInfo: nil, repeats: false)
+    }
+    
+    @objc func freeLabel(){
+        blockLabelText = false
+    }
+    
     public func addCombo() {
         comboCounter = Constants.comboSeconds
         comboX += 1
     }
+    
     
     func calculateCombo() -> Int {
         return comboX / 3 + comboX
@@ -73,6 +88,7 @@ public class CountDowner {
         
         timerLabel =  GameButton(type: UIButtonType.system)
         timerLabel.initialize(x: xPosition, y: yPosition, size: buttonSize)
+        
         viewController.view.addSubview(timerLabel)
     }
     
@@ -100,12 +116,12 @@ public class CountDowner {
             {
                 let comboTotal = calculateCombo()
                 timerCounter += comboTotal
-                timerLabel.setText(text: "+" + String(comboTotal))
+                setLabelText(text: "+" + String(comboTotal))
                 
             }
             else
             {
-                timerLabel.setText(text: String(timerCounter))
+                setLabelText(text: String(timerCounter))
                 timerCounter -= 1
             }
             
@@ -114,8 +130,15 @@ public class CountDowner {
         else
         {
             comboCounter -= 1
-            timerLabel.setText(text:String(timerCounter))           
+            setLabelText(text:String(timerCounter))
             timerCounter -= 1
+        }
+    }
+    
+    func setLabelText(text: String) {
+        if(!blockLabelText)
+        {
+            timerLabel.setText(text: text)
         }
     }
     

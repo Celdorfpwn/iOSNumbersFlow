@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     
     @IBOutlet  var presentationLabel: UILabel!
     
-    private let numbersFactory : NumbersFactory = NumbersFactory()
+    public let numbersFactory : NumbersFactory = NumbersFactory()
     
     private lazy var countDowner : CountDowner = CountDowner(controller: self)
     
@@ -138,6 +138,11 @@ class ViewController: UIViewController {
             button.wrongEvent()
         }
         
+    }
+    
+    @IBAction public func counterClick(button: GameButton!){
+        
+        countDowner.tempSetLabelText(text: String(numbersFactory.getLastNumber()))
     }
     
     
